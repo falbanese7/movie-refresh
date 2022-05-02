@@ -2,6 +2,7 @@ const trailer = document.getElementById('trailer');
 const userInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 const video = document.getElementById('trailer');
+const reviews = document.getElementById('reviews');
 
 // const video = document.getElementById('youtube-video');
 const videoLink = document.getElementById('youtube-link');
@@ -21,8 +22,9 @@ function renderMovieInfo(data) {
     const movieData = data;
     console.log(movieData);
     const movieID = movieData.results[0].id
-
+    
     const tmdbVideoAPI = 'https://api.themoviedb.org/3/movie/'+movieID+'/videos?api_key=1bc4ec58dc00c942690743be433f730d&language=en-US'
+    const tmdbReviewAPI = 'https://api.themoviedb.org/3/movie/'+movieID+'/reviews?api_key=1bc4ec58dc00c942690743be433f730d&language=en-US'
 
     fetch(tmdbVideoAPI)
         .then((result) => {
@@ -31,6 +33,21 @@ function renderMovieInfo(data) {
             console.log(data);
             renderVideo(data);
         })
+
+        fetch(tmdbReviewAPI)
+        .then((result) => {
+            return(result.json())
+        }).then((data)=> {
+            console.log(data);
+            for (i=0; i < 6; i++){
+                let author =  document.createElement('p');
+                author.textContent = data.results[i].author;
+                let review = document.createElement('p');
+                review.textContent = data.results[i].content;
+                reviews.append(author, review);
+            }
+            
+        })     
 
 }
 

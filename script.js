@@ -39,6 +39,7 @@ function renderMovieInfo(data) {
             return(result.json())
         }).then((data)=> {
             console.log(data);
+            reviews.innerHTML = '';
             for (i=0; i < 6; i++){
                 let author =  document.createElement('p');
                 author.textContent = data.results[i].author;

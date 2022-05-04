@@ -14,6 +14,10 @@ function getSearchResult() {
             return(result.json())
         }).then((data)=> {
             renderMovieInfo(data)
+            let title = data.results[0].title;
+            const movieTitle = document.createElement('h2');
+            movieTitle.textContent = title;
+            video.appendChild(movieTitle);
         })
 }
 
@@ -72,13 +76,16 @@ function renderVideo(data) {
             thumbImg.setAttribute('src', data.items[0].snippet.thumbnails.default.url);
 
             
-            videoLink.innerHTML = '<a href=' + 'https://youtube.com/watch?v=' + data.items[0].id + ' target=_blank' + '>' + 'Watch on YouTube'
+            const vidLink = document.createElement('a')
+            vidLink.setAttribute('href','https://youtube.com/watch?v=' + data.items[0].id);
+            vidLink.innerHTML = 'Watch on Youtube!';
+
             
             
             const vid = data.items[0].snippet.title;
-            video.innerHTML = vid;
-            video.appendChild(movieTitle);
-            video.appendChild(thumbImg)
+            const vidTitle = document.createElement('h4');
+            vidTitle.textContent = vid;
+            video.append(vidTitle, thumbImg, vidLink)
     })
 }
 

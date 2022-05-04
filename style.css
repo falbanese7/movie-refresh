@@ -3,6 +3,23 @@
 }
 
 body {
-  font-family: Arial;
+  width: auto;
+}
+header {
+  padding: 15px;
+  background-color: black;
+  font-family: 'Codystar', cursive;
 }
 
+nav div {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  margin-right: 10px;
+}
+
+nav {
+  border-bottom: solid black 5px;
+}

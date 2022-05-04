@@ -6,29 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movie Refresh</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Codystar&display=swap" rel="stylesheet">
 	  <link rel ="stylesheet" href="./style.css">
   </head>
   <body>
     <header class="columns is-centered">
         <!-- working title -->
-        <h1 class="title is-1">Movie Refresh</h1>
+        <h1 class="title is-1 has-text-warning">Movie Refresh</h1>
     </header>
-    <nav></nav>
-    <main class="columns">
-        <div class="column">
-          <label class="label">Movie Name</label>
-          <form class="control">
-            <input id="search-input" class="input" type="text" placeholder="Insert the name of a movie">
-            <button id="search-btn" class="button is-link">Search</button>
-          </form>
-        </div>        
+    <nav class="navbar-center is-centered">
+      <div class="navbar-item">
+        <!-- <label class="label">Movie Name</label> -->
+        <form class="control navbar-item">
+          <input id="search-input" class="input" type="text" placeholder="Type movie name">
+          <button id="search-btn" class="button is-warning">Search</button>
+        </form>
+      </div>
+    </nav>
+    <main class="columns">   
         <!-- where the trailer lives -->
-        <div class="columns">
-          <section class="column p-1" id="trailer"></section>
-          <section class="column p-1" id="youtube-link"></section>
-        </div> 
-        <!-- where the review lives -->
-        <section class="column p-1" id="reviews"></section>
+          <div class="column">
+            <section class="column p-1" id="trailer"></section>
+            <section class="column p-1" id="youtube-link"></section>
+          </div>
+          <!-- where the review lives -->
+          <section class="column p-1" id="reviews"></section>
     </main>
 
 	<script src="script.js"></script>

@@ -14,9 +14,11 @@ function getSearchResult() {
             return(result.json())
         }).then((data)=> {
             renderMovieInfo(data)
+            video.innerHTML = '';
             let title = data.results[0].title;
             const movieTitle = document.createElement('h2');
-            movieTitle.textContent = title;
+            movieTitle.textContent = 'Showing video results for: ' + title;
+            movieTitle.setAttribute('class', 'title is-2')
             video.appendChild(movieTitle);
         })
 }
@@ -43,9 +45,16 @@ function renderMovieInfo(data) {
         }).then((data)=> {
             console.log(data);
             reviews.innerHTML = '';
+            const reviewTitle = document.createElement('h2');
+            reviewTitle.textContent = 'Viewer Reviews';
+            reviewTitle.setAttribute('class', 'title is-2 mt-3');
+            reviews.append(reviewTitle);
+            reviews.setAttribute('class', 'column p-1 m-2');
+            reviews.style['border-left'] = 'solid black 5px';
             for (i=0; i < data.results.length; i++){
-                let author =  document.createElement('p');
-                author.textContent = data.results[i].author;
+                let author =  document.createElement('h5');
+                author.setAttribute('class', "title is-5 mt-4");
+                author.textContent = 'Review #' + (i+1) + ': ' + data.results[i].author;
                 let review = document.createElement('p');
                 review.textContent = data.results[i].content;
                 reviews.append(author, review);
@@ -58,35 +67,41 @@ function renderMovieInfo(data) {
 function renderVideo(data) {
     const videoData = data;
     console.log(videoData);
-    const youtubeID = videoData.results[0].key;
-    const title = videoData.results[0].title;
-
-    const movieTitle = document.createElement('h2');
-    movieTitle.textContent = title;
+   
     
 
+    for (let i=0; i < videoData.results.length; i++){
+        let youtubeID = videoData.results[i].key;
+        let title = videoData.results[i].title;
+    
+        let movieTitle = document.createElement('h2');
+        movieTitle.textContent = title;
 
-    const youtubeAPI = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id='+youtubeID+'&key=AIzaSyBD_G6CwLIRwiOxUT6JVCwO5OLihLFTzN8'
-        fetch(youtubeAPI)
-        .then((result) => {
-            return(result.json())
-        }).then((data)=> {
-            console.log(data)
-            const thumbImg = document.createElement('img');
-            thumbImg.setAttribute('src', data.items[0].snippet.thumbnails.default.url);
+        let youtubeAPI = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id='+youtubeID+'&key=AIzaSyBD_G6CwLIRwiOxUT6JVCwO5OLihLFTzN8'
+            fetch(youtubeAPI)
+            .then((result) => {
+                return(result.json())
+            }).then((data)=> {
+                console.log(data)
+                let thumbImg = document.createElement('img');
+                thumbImg.setAttribute('src', data.items[0].snippet.thumbnails.standard.url);
 
-            
-            const vidLink = document.createElement('a')
-            vidLink.setAttribute('href','https://youtube.com/watch?v=' + data.items[0].id);
-            vidLink.innerHTML = 'Watch on Youtube!';
+                
+                let vidLink = document.createElement('a')
+                vidLink.setAttribute('href','https://youtube.com/watch?v=' + data.items[0].id);
+                vidLink.setAttribute('target', '_blank');
+                vidLink.append(thumbImg);
 
-            
-            
-            const vid = data.items[0].snippet.title;
-            const vidTitle = document.createElement('h4');
-            vidTitle.textContent = vid;
-            video.append(vidTitle, thumbImg, vidLink)
-    })
+                
+                
+                let vid = data.items[0].snippet.title;
+                let vidTitle = document.createElement('h4');
+                vidTitle.setAttribute('class', 'title is-4');
+                vidTitle.textContent = vid;
+                video.append(vidTitle, vidLink)
+    
+        })
+    }
 }
 
 function handleSearchSubmit(event) {

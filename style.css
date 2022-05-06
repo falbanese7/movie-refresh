@@ -21,6 +21,18 @@ input {
   margin-right: 10px;
 }
 
+h5 {
+  margin-left: 10px;
+}
+
+p {
+  margin: 10px;
+}
+
+#review-header {
+  margin-left: 5px;
+}
+
 nav {
   border-bottom: solid black 5px;
 }

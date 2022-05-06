@@ -36,6 +36,11 @@ p {
 nav {
   border-bottom: solid black 5px;
 }
+
+footer{
+  text-align: center;
+}
+
 @media screen and (max-width:1050px){
   iframe {
   width: 420px;

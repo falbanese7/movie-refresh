@@ -1,5 +1,6 @@
 # Movie Refresh
 
+
 This website is used to look up movies so you can get a quick refresh or see if you would like watch it for the first time.
 
 Peek at trailers or closely related videos. Read viewer's reviews to see what others think.
@@ -12,13 +13,18 @@ The link to this website is: https://falbanese7.github.io/movie-refresh/
 
 As a movie-goer
 
+#User Story
+
+As a movie-goer'
+
 I want to see if a movie is worth seeing'
 
-So that I know wheter its worth it to buy tickets.
+So that I know whether it is worth it to buy tickets.
+
 
 ## How to use
 
-To use the site, just type in the name of a movie, and the relevent searches will be presented to the screen.
+To use the site, just type in the name of a movie, and the relevant searches will be presented to the screen.
 
 On the left, the user will find the name of the movie that best matched their input and all closely related trailers about the movie. Clicking on a video will play the video on the page.
 
@@ -35,3 +41,5 @@ On the right, the user will find all submitted reviews to The Movie Database for
 ## Devlopers
 
 Francesco Albanese and William Bain
+
+

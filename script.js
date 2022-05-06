@@ -42,6 +42,7 @@ function renderMovieInfo(data) {
             const reviewTitle = document.createElement('h2');
             reviewTitle.textContent = 'Viewer Reviews';
             reviewTitle.setAttribute('class', 'title is-2 mt-3');
+            reviewTitle.setAttribute('id', 'review-header')
             reviews.append(reviewTitle);
             reviews.setAttribute('class', 'column p-1 m-2 add-border');
             reviews.style['border-left'] = 'solid black 5px';
@@ -74,7 +75,7 @@ function renderVideo(data) {
             }).then((data)=> {
                 let vidLink = document.createElement('iframe')
                 vidLink.src = 'https://youtube.com/embed/' + data.items[0].id;
-                vidLink.setAttribute('width', '720');
+                vidLink.setAttribute('width', '854');
                 vidLink.setAttribute('height', '480');
                
                 

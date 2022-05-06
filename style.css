@@ -12,6 +12,7 @@ header {
 }
 
 nav div {
+  background-color: rgb(208, 208, 68);
   display: flex;
   justify-content: center;
 }
@@ -22,4 +23,13 @@ input {
 
 nav {
   border-bottom: solid black 5px;
+}
+@media screen and (max-width:767px){
+  iframe {
+  width: 420px;
+  height: 315px;
+}
+.add-border {
+  border-top: solid black 5px;
+}
 }

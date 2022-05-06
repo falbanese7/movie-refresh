@@ -2,8 +2,6 @@ const userInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 const video = document.getElementById('trailer');
 const reviews = document.getElementById('reviews');
-
-// const video = document.getElementById('youtube-video');
 const videoLink = document.getElementById('youtube-link');
 
 function getSearchResult() {
@@ -25,9 +23,7 @@ function getSearchResult() {
 
 function renderMovieInfo(data) {
     const movieData = data;
-    console.log(movieData);
     const movieID = movieData.results[0].id
-    
     const tmdbVideoAPI = 'https://api.themoviedb.org/3/movie/'+movieID+'/videos?api_key=1bc4ec58dc00c942690743be433f730d&language=en-US'
     const tmdbReviewAPI = 'https://api.themoviedb.org/3/movie/'+movieID+'/reviews?api_key=1bc4ec58dc00c942690743be433f730d&language=en-US&page=1'
 
@@ -35,7 +31,6 @@ function renderMovieInfo(data) {
         .then((result) => {
             return(result.json())
         }).then((data)=> {
-            console.log(data);
             renderVideo(data);
         })
 
@@ -43,14 +38,14 @@ function renderMovieInfo(data) {
         .then((result) => {
             return(result.json())
         }).then((data)=> {
-            console.log(data);
             reviews.innerHTML = '';
             const reviewTitle = document.createElement('h2');
             reviewTitle.textContent = 'Viewer Reviews';
             reviewTitle.setAttribute('class', 'title is-2 mt-3');
             reviews.append(reviewTitle);
-            reviews.setAttribute('class', 'column p-1 m-2');
+            reviews.setAttribute('class', 'column p-1 m-2 add-border');
             reviews.style['border-left'] = 'solid black 5px';
+            
             for (i=0; i < data.results.length; i++){
                 let author =  document.createElement('h5');
                 author.setAttribute('class', "title is-5 mt-4");
@@ -58,18 +53,13 @@ function renderMovieInfo(data) {
                 let review = document.createElement('p');
                 review.textContent = data.results[i].content;
                 reviews.append(author, review);
-            }
-            
-        })     
-
+            } 
+        })
 }
 
 function renderVideo(data) {
     const videoData = data;
-    console.log(videoData);
    
-    
-
     for (let i=0; i < videoData.results.length; i++){
         let youtubeID = videoData.results[i].key;
         let title = videoData.results[i].title;
@@ -82,16 +72,11 @@ function renderVideo(data) {
             .then((result) => {
                 return(result.json())
             }).then((data)=> {
-                console.log(data)
-                let thumbImg = document.createElement('img');
-                thumbImg.setAttribute('src', data.items[0].snippet.thumbnails.standard.url);
-
-                
-                let vidLink = document.createElement('a')
-                vidLink.setAttribute('href','https://youtube.com/watch?v=' + data.items[0].id);
-                vidLink.setAttribute('target', '_blank');
-                vidLink.append(thumbImg);
-
+                let vidLink = document.createElement('iframe')
+                vidLink.src = 'https://youtube.com/embed/' + data.items[0].id;
+                vidLink.setAttribute('width', '720');
+                vidLink.setAttribute('height', '480');
+               
                 
                 
                 let vid = data.items[0].snippet.title;

@@ -75,11 +75,10 @@ function renderVideo(data) {
             }).then((data)=> {
                 let vidLink = document.createElement('iframe')
                 vidLink.src = 'https://youtube.com/embed/' + data.items[0].id;
-                vidLink.setAttribute('width', '854');
-                vidLink.setAttribute('height', '480');
+                vidLink.setAttribute('width', '640');
+                vidLink.setAttribute('height', '360');
                
-                
-                
+            
                 let vid = data.items[0].snippet.title;
                 let vidTitle = document.createElement('h4');
                 vidTitle.setAttribute('class', 'title is-4');

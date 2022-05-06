@@ -36,7 +36,27 @@ p {
 nav {
   border-bottom: solid black 5px;
 }
-@media screen and (max-width:767px){
+@media screen and (max-width:1050px){
+  iframe {
+  width: 420px;
+  height: 315px;
+}
+.add-border {
+  border-top: solid black 5px;
+}
+}
+
+@media screen and (max-width:768px){
+  iframe {
+  width: 640px;
+  height: 360px;
+}
+.add-border {
+  border-top: solid black 5px;
+}
+}
+
+@media screen and (max-width:648px){
   iframe {
   width: 420px;
   height: 315px;

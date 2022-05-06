@@ -1,6 +1,5 @@
 # Movie Refresh
 
-
 This website is used to look up movies so you can get a quick refresh or see if you would like watch it for the first time.
 
 Peek at trailers or closely related videos. Read viewer's reviews to see what others think.
@@ -13,14 +12,9 @@ The link to this website is: https://falbanese7.github.io/movie-refresh/
 
 As a movie-goer
 
-#User Story
-
-As a movie-goer'
-
-I want to see if a movie is worth seeing'
+I want to see if a movie is worth seeing
 
 So that I know whether it is worth it to buy tickets.
-
 
 ## How to use
 
@@ -41,5 +35,3 @@ On the right, the user will find all submitted reviews to The Movie Database for
 ## Devlopers
 
 Francesco Albanese and William Bain
-
-

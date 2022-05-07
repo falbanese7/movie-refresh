@@ -89,6 +89,18 @@ function renderVideo(data) {
     }
 }
 
+function addInputToLocal(userInput){
+    let userInputs = []; 
+    const readData = localStorage.getItem('userInputs');
+    if (readData) {
+        userInputs = JSON.parse(readData);
+    }
+    if (!userInputs.includes(userInput.value)){
+        userInputs.push(userInput.value);
+        localStorage.setItem('userInputs', JSON.stringify(userInputs));
+    } 
+}
+
 function handleSearchSubmit(event) {
     event.preventDefault();
 
@@ -96,6 +108,7 @@ function handleSearchSubmit(event) {
         alert(response.message)
     }
     getSearchResult();
+    addInputToLocal(userInput);
 }
 
 searchBtn.addEventListener('click', handleSearchSubmit);

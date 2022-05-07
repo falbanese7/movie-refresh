@@ -33,6 +33,6 @@ On the right, the user will find all submitted reviews to The Movie Database for
 - [YouTube Data API](https://developers.google.com/youtube/v3)
 - [The Movie Database API](https://developers.themoviedb.org/3/movies/get-movie-external-ids)
 
-## Devlopers
+## Developers
 
 Francesco Albanese and William Bain
